@@ -7,8 +7,9 @@
  */
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Route, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+
 import { Flex, Box } from 'rebass';
 import HomePage from '../homePage';
 import { ErrorBoundary } from '../../components/errorBoundary';
@@ -19,9 +20,16 @@ import Footer from '../../components/footer';
 function Main() {
   return (
     <>
-      <Helmet titleTemplate="Freedom Mobile | %s" defaultTitle="Freedom Mobile">
-        <meta name="description" content="Freedom Mobile application" />
-      </Helmet>
+      <Helmet
+        titleTemplate="Freedom Mobile | %s"
+        defaultTitle="Freedom Mobile"
+        meta={[
+          {
+            name: 'description',
+            content: 'Freedom Mobile application',
+          },
+        ]}
+      />
       <Flex flexDirection="column" height="100%">
         <ErrorBoundary>
           <Header />

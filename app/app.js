@@ -16,16 +16,18 @@ import { ConnectedRouter } from 'connected-react-router';
 import FontFaceObserver from 'fontfaceobserver';
 import { ThemeProvider } from 'emotion-theming';
 import 'sanitize.css/sanitize.css';
+import { HelmetProvider } from 'react-helmet-async';
 import history from './utils/history';
 // Import root app
 
 // Load the favicon and the .htaccess file
+// eslint-disable-next-line import/no-webpack-loader-syntax
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 
 import configureStore from './configureStore';
 import Main from './containers/main';
-import GlobalStyle from './global-styles';
 import theme from './theme/theme';
+import GlobalStyle from './components/gloablStyle';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -44,12 +46,14 @@ const MOUNT_NODE = document.getElementById('app');
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <ConnectedRouter history={history}>
-          <Main />
-        </ConnectedRouter>
-      </ThemeProvider>
-      <GlobalStyle />
+      <HelmetProvider>
+        <ThemeProvider theme={theme}>
+          <ConnectedRouter history={history}>
+            <Main />
+          </ConnectedRouter>
+        </ThemeProvider>
+        <GlobalStyle />
+      </HelmetProvider>
     </Provider>,
     MOUNT_NODE,
   );

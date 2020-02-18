@@ -19,8 +19,8 @@ const HomePage = () => {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   return (
-    <Flex flexDirection="column" variant="container">
-      <Box>This is the home page</Box>
+    <Flex flexDirection="column">
+      <Box variant="container">This is the home page</Box>
     </Flex>
   );
 };
