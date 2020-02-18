@@ -20,6 +20,7 @@ export class ErrorBoundary extends React.Component {
     if (!hasError) {
       return children;
     }
+    // This will only show the errorBoundary when in development mode
     if (process.env.NODE_ENV === 'development') {
       return (
         <>

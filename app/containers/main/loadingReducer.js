@@ -14,13 +14,23 @@ const initialState = {};
 const loadingReducer = produce((draft, action) => {
   if (action) {
     const { type } = action;
-    const matches = /(.*)_(REQUEST|SUCCESS|FAILURE)/.exec(type);
+    const matches = /(LOAD|LOADED|ERROR)_(.*)/.exec(type);
 
-    // not a *_REQUEST / *_SUCCESS /  *_FAILURE actions, so we ignore them
+    // not a LOAD_* / LOADED_* /  ERROR_* actions, so we ignore them
     if (matches) {
-      const [, requestName, requestState] = matches;
+      const [, requestState, requestName] = matches;
+      const stateName = requestName
+        .split('_')
+        .map((word, index) => {
+          let w = word.toLowerCase();
+          if (index > 0) {
+            w = w.charAt(0).toUpperCase() + w.slice(1);
+          }
+          return w;
+        })
+        .join('');
 
-      draft[requestName] = requestState === 'REQUEST';
+      draft[stateName] = requestState === 'LOAD';
     }
   }
   return draft;

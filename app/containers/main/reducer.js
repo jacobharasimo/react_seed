@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
  * AppReducer
  *
@@ -16,11 +17,8 @@ export const initialState = {};
 const appReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
-      case 'sample':
-        draft.loading = true;
-        draft.error = false;
-        draft.userData.repositories = false;
-        break;
+      default:
+      // here is the default start of the switch.
     }
   });
 

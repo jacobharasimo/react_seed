@@ -10,13 +10,6 @@ module.exports = {
   ],
   plugins: [
     'lodash',
-    [
-      'styled-components',
-      {
-        displayName: true,
-        minify: false,
-      },
-    ],
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
   ],
@@ -24,11 +17,6 @@ module.exports = {
     production: {
       only: ['app'],
       plugins: [
-        'styled-components',
-        {
-          displayName: false,
-          minify: true,
-        },
         'lodash',
         'transform-react-remove-prop-types',
         '@babel/plugin-transform-react-inline-elements',

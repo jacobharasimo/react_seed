@@ -17,12 +17,8 @@
 
 import { createActions } from 'redux-actions';
 
-export const {
-  loadDeviceList,
-  loadedDeviceList,
-  errorDeviceList,
-} = createActions(
-  'LOAD_DEVICE_LIST',
-  'LOADED_DEVICE_LIST',
-  'ERROR_DEVICE_LIST',
+export const { loadSample, loadedSample, errorSample } = createActions(
+  'LOAD_SAMPLE',
+  'LOADED_SAMPLE',
+  'ERROR_SAMPLE',
 );

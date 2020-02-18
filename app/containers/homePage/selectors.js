@@ -11,7 +11,7 @@ const selectHomepage = state => {
   return initialState;
 };
 
-export const makeSelectDevices = createSelector(
+export const makeSelectSample = createSelector(
   selectHomepage,
-  state => state.deviceList,
+  state => state.sample,
 );
