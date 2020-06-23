@@ -21,12 +21,12 @@ function Main() {
   return (
     <>
       <Helmet
-        titleTemplate="Freedom Mobile | %s"
-        defaultTitle="Freedom Mobile"
+        titleTemplate="React Seed | %s"
+        defaultTitle="React Seed"
         meta={[
           {
             name: 'description',
-            content: 'Freedom Mobile application',
+            content: 'React Seed application',
           },
         ]}
       />
